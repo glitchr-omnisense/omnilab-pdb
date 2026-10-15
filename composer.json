@@ -1,0 +1,46 @@
+{
+    "name": "omnilab/pdb",
+    "type": "library",
+    "description": "Omnilab PDB: an entry of the Protein Data Bank by its PDB id through RCSB PDB's GraphQL Data API - its title, keywords, method, resolution, weight, dates, primary citation and authors, its polymer entities and ligands, an image of its assembly; the UniProt proteins of its chains, their organisms and its ligands (ChEBI, PubChem or InChIKey) as related things, never its identifiers; a removed entry's only replacement - and RCSB's full-text search, no key needed.",
+    "keywords": [
+        "science",
+        "biology",
+        "structural-biology",
+        "protein-structure",
+        "pdb",
+        "rcsb",
+        "graphql",
+        "omnilab"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Meyer",
+            "email": "marco.meyer@glitchr.io"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "glitchr/omnilab": "^1.0@dev",
+        "symfony/http-client": "^6.4|^7.0|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omnilab\\Pdb\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Omnilab\\Pdb\\Tests\\": "Tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

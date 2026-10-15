@@ -1,0 +1,15 @@
+{
+  "query_id" : "a58ea080-21fd-4635-a0e7-d150edbb6f3e",
+  "result_type" : "entry",
+  "total_count" : 9220,
+  "result_set" : [ {
+    "identifier" : "6IHX",
+    "score" : 0.998691215625315
+  }, {
+    "identifier" : "20YJ",
+    "score" : 0.9983942555545738
+  }, {
+    "identifier" : "1G08",
+    "score" : 0.9979521236537064
+  } ]
+}

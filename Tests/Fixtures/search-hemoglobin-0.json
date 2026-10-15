@@ -1,0 +1,15 @@
+{
+  "query_id" : "079a8fd4-c440-449c-a6fe-ead2d3584e1f",
+  "result_type" : "entry",
+  "total_count" : 9220,
+  "result_set" : [ {
+    "identifier" : "2PGH",
+    "score" : 1.0
+  }, {
+    "identifier" : "3PEL",
+    "score" : 0.9993475051656653
+  }, {
+    "identifier" : "3GOU",
+    "score" : 0.9990019923179583
+  } ]
+}
