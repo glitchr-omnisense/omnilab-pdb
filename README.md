@@ -1,6 +1,6 @@
 # omnilab/pdb
 
-The Protein Data Bank for [glitchr/omnilab](https://github.com/glitchr-studio/omnilab), through the
+The Protein Data Bank for [omniscient/omnilab](https://github.com/glitchr-studio/omnilab), through the
 APIs of RCSB PDB: an entry by its PDB id - its title, keywords, experimental method, resolution,
 weight, dates, primary citation and authors, its polymer entities (the chains) and its ligands, a
 picture of its first assembly; the UniProt proteins of its chains, their organisms and its ligands
