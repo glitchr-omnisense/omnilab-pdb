@@ -64,7 +64,7 @@ and:
 
 `identifiers`: none but its own, and the removed id it was asked by. `related` - other things, the
 `Collector` does not follow them, the `Merger` joins nothing by them ([the core's
-decision](https://github.com/glitchr-studio/omnilab/blob/1.x/docs/decisions.md)):
+decision](https://github.com/glitchr-omnisense/omnilab/blob/1.x/docs/decisions.md)):
 
 - `protein`: the UniProt accessions of its chains;
 - `organism`: their NCBI taxa;
