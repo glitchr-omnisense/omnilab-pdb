@@ -1,5 +1,10 @@
 # omnilab/pdb
 
+The Protein Data Bank through RCSB PDB's GraphQL Data API (`https://data.rcsb.org/`) and Search API
+(`https://search.rcsb.org/rcsbsearch/v2/query`) for [omnisense/omnilab](https://github.com/glitchr-omnisense/omnilab):
+structures by PDB id - method, resolution, citation, chains and ligands - with their UniProt
+proteins, organisms and ligands as related things, as entities; a full-text search. No key.
+
 ## Installation
 
 ```sh
@@ -13,6 +18,45 @@ $pdb = (new PdbSourceFactory($httpClient))->create(['mailto' => 'support@glitchr
 ```
 
 With the Symfony bundle, the factory is registered as `pdb` (see the core's docs).
+
+## Credentials
+
+None: RCSB PDB's Data and Search APIs take no key and no account. Give `mailto`, the address RCSB
+writes to before it blocks a caller.
+
+## Options
+
+The factory's options, with the defaults it applies (`PdbSourceFactory`):
+
+| Option | Type | Default | Required | Effect |
+|---|---|---|---|---|
+| `search_uri` | `string` | `https://search.rcsb.org/rcsbsearch/v2/query` | no | the Search API (`rcsbsearch/v2/query`) |
+| `mailto` | `?string` | null | no | a contact address, in the User-Agent: whom RCSB writes to before it blocks a caller |
+| `user_agent` | `?string` | null | no | the whole User-Agent, in place of the one made from `mailto` |
+| `throttle` | `float` | `0.25` | no | seconds left between two calls: RCSB asks to start at a handful a second, and answers 429 beyond its limit |
+| `base_uri` | `string` | `https://data.rcsb.org/` | no | the Data API: GraphQL (`graphql`) and the holdings of removed entries (`rest/v1/holdings/removed/...`) |
+
+## Capabilities
+
+`capabilities()` answers `entity`, `search`, `structure`; an operation it does not answer throws `NotSupportedException` before any call.
+
+| Capability | Supported | |
+|---|---|---|
+| `entity` | yes | a PDB id (`4HHB`, `pdb:`, the extended `pdb_00004hhb`, its RCSB page): one GraphQL call; a removed entry gives the one that replaced it, when only one did; another scheme refused before any call |
+| `search` | yes | RCSB's full-text search over the experimental structures, the best first, 100 a page at most, with a `total`; then one GraphQL call for the page's entries; a domain other than biology answers an empty page |
+| `series` | no |  |
+| `products` | no |  |
+| `occurrences` | no |  |
+| `datasets` | no |  |
+| `jobs` | no |  |
+| `open` | no |  |
+| `structure` | yes | the image is RCSB's picture of its first biological assembly |
+| `cross_references` | no | none: a structure is not its protein; its chains' UniProt proteins, their organisms and its ligands are `related` |
+| `forecast` | no |  |
+| `historical` | no |  |
+| `area` | no |  |
+| `station` | no |  |
+| `cloud_cover` | no |  |
 
 ## Which API, and why
 
@@ -93,6 +137,59 @@ A structure is not its protein: a PDB entry carries no identifier the other sour
   assemblies' details, the validation reports, the branched entities (glycans), the sequence and
   structure searches of the Search API, the computed models (AlphaFold DB's, through RCSB).
 
+## Example
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omnilab\Model\Scheme;
+use Omnilab\Pdb\PdbSourceFactory;
+use Omnilab\Source\Query;
+use Symfony\Component\HttpClient\HttpClient;
+
+$pdb = (new PdbSourceFactory(HttpClient::create()))->create(['mailto' => 'you@example.org']);
+
+$entry = $pdb->entity('4HHB');
+echo $entry->id, ' ', $entry->label, "\n";
+echo '  ', $entry->value('experimental_method'), ', ', $entry->property('resolution'), ', ', $entry->property('molecular_weight'), ', proteins ', implode(', ', $entry->related('protein')->values(Scheme::UNIPROT)), "\n";
+foreach ($entry->properties('ligand') as $ligand) {
+    echo '  ligand ', $ligand, "\n";
+}
+echo '1FB4 is now ', $pdb->entity('1FB4')?->id, "\n";
+
+$page = $pdb->search(new Query('hemoglobin', limit: 3));
+printf("%d entries for \"hemoglobin\"; the first %d: %s\n", $page->total, count($page), implode(', ', array_map(static fn ($e) => $e->id->value, $page->items)));
+```
+
+```
+pdb:4HHB THE CRYSTAL STRUCTURE OF HUMAN DEOXYHAEMOGLOBIN AT 1.74 ANGSTROMS RESOLUTION
+  X-RAY DIFFRACTION, 1.74 Å, 64.74 kDa, proteins P69905, P68871
+  ligand HEM: PROTOPORPHYRIN IX CONTAINING FE (C34 H32 Fe N4 O4)
+  ligand PO4: PHOSPHATE ION (O4 P)
+1FB4 is now pdb:2FB4
+9218 entries for "hemoglobin"; the first 3: 2PGH, 3PEL, 3GOU
+```
+
+(as answered on 2026-10-27: six calls, 0.25 s apart)
+
+```yaml
+# config/packages/omnilab.yaml
+omnilab:
+    sources:
+        pdb: { factory: pdb, options: { mailto: '%env(OMNILAB_MAILTO)%' } }
+```
+
+## Errors
+
+Every call goes through `HttpSource`: a 404 or a 410 (and a 204) is null - an empty page for a list -; a 429 is a `RateLimitedException` (`retryAfter` from `Retry-After`); a 5xx, a time-out or a host that does not answer an `UnavailableException`; any other 4xx a `ProviderException` with its `status` and what the service said; an answer that is not JSON a `ProviderException`, a web page answered for JSON an `UnavailableException`.
+
+RCSB's own: GraphQL's errors come with a 200 and are thrown as a `ProviderException`
+("GraphQL answered: ..."); a search that matches nothing is the Search API's 204, an empty page.
+A removed entry replaced by several, or an unknown id, is null. Before any call: a UniProt
+accession, a name, any other scheme (`NotSupportedException`).
+
 ## Verified, and not
 
 Against the real services on 2026-10-15, without a key: 4HHB (1.74 Å, X-ray, 64.74 kDa, 4,779
@@ -104,5 +201,17 @@ pages of three, GraphQL's order differing from the search's), a search matching 
 GraphQL error (a 200 with `errors`); the image URLs of 4HHB, 1A3N, 6VXX and 9ZZZ (200). The
 fixtures in `Tests/Fixtures/` are its answers.
 
+Again on 2026-10-27: 4HHB, 1FB4 replaced by 2FB4, the search for "hemoglobin" (9,218 entries;
+the example above).
+
 Not verified: RCSB's 429 (none met: the handling is the core's); an extended id that is not a
 four-character code's (none met; it would be asked as it is, and get no picture).
+
+## Responsibility
+
+This package is an independent, unofficial client: it is not affiliated with, endorsed by or
+sponsored by RCSB PDB or the wwPDB. The PDB archive's data are free of copyright (CC0 1.0, the
+wwPDB's policy); cite the entry's primary citation and RCSB PDB where they are shown, and keep to
+RCSB's rate limits, as the README's [Terms of use](https://github.com/glitchr-omnisense/omnilab-pdb#terms-of-use)
+says. Whoever runs the package is responsible for any use made of what it returns: see the README's
+[Responsibility](https://github.com/glitchr-omnisense/omnilab-pdb#responsibility) section.
