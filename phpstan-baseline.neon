@@ -1,0 +1,523 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 10
+			path: PdbSource.php
+
+		-
+			message: '#^Binary operation "\." between ''\('' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Binary operation "\." between ''\: '' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''InChIKey'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''assembly_ids'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''chem_comp'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''deposit_date'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''deposited_atom_count'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''emdb_ids'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''entity_poly'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''formula'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''id_codes_replaced_by'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''identifier'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''initial_release_date'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''method'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''molecular_weight'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''ncbi_scientific_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''ncbi_taxonomy_id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''nonpolymer_comp'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''pdbx_database_id_DOI'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''pdbx_database_id_PubMed'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''pdbx_description'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''pdbx_keywords'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''pdbx_strand_id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''polymer_composition'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''rcsb_chem_comp_descriptor'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''rcsb_chem_comp_related'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''rcsb_entity_source_organism'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''rcsb_polymer_entity'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''rcsb_polymer_entity_container_identifiers'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''rcsb_sample_sequence_length'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''replace_pdb_id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''resolution_combined'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''resource_accession_code'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''resource_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''revision_date'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''title'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''type'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset ''uniprot_ids'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 8
+			path: PdbSource.php
+
+		-
+			message: '#^Method Omnilab\\Pdb\\PdbSource\:\:citation\(\) has parameter \$c with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Method Omnilab\\Pdb\\PdbSource\:\:graphql\(\) should return array\<string, mixed\> but returns array\<mixed\>\.$#'
+			identifier: return.type
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Parameter \#1 \$c of static method Omnilab\\Pdb\\PdbSource\:\:citation\(\) expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Parameter \#1 \$e of method Omnilab\\Pdb\\PdbSource\:\:toEntity\(\) expects array\<string, mixed\>, array\<mixed, mixed\> given\.$#'
+			identifier: argument.type
+			count: 3
+			path: PdbSource.php
+
+		-
+			message: '#^Parameter \#1 \$text of static method Omnilab\\Source\\HttpSource\:\:text\(\) expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 17
+			path: PdbSource.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: PdbSource.php
+
+		-
+			message: '#^Parameter \#2 \$value of static method Omnilab\\Model\\Identifier\:\:tryOf\(\) expects int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 4
+			path: PdbSource.php
+
+		-
+			message: '#^Parameter \#5 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: PdbSource.php
+
+		-
+			message: '#^Cannot cast mixed to float\.$#'
+			identifier: cast.double
+			count: 1
+			path: PdbSourceFactory.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 2
+			path: PdbSourceFactory.php
+
+		-
+			message: '#^Binary operation "\." between ''search '' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Binary operation "\." between ''search\-hemoglobin\-'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''ids'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''paginate'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''parameters'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''query'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''request_options'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''rows'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''start'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''value'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''variables'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access property \$description on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access property \$domain on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access property \$id on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access property \$image on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access property \$kind on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access property \$label on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access property \$source on Omnilab\\Model\\Property\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot access property \$url on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot call method identifiers\(\) on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot call method properties\(\) on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot call method property\(\) on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot call method related\(\) on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot call method value\(\) on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: method.nonObject
+			count: 11
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Method Omnilab\\Pdb\\Tests\\PdbSourceTest\:\:source\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Offset 2 does not exist on array\{''search hemoglobin 0…'', ''graphql \{"ids"\:\[…''\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Parameter \#1 \$options of method Omnilab\\Source\\SourceFactory\:\:create\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Tests/PdbSourceTest.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtoupper expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Tests/PdbSourceTest.php

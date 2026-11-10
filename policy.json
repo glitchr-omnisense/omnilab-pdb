@@ -1,0 +1,40 @@
+{
+    "$schema": "https://github.com/glitchr-omnisense/contracts/blob/1.x/resources/usage-policy.schema.json",
+    "provider": "pdb",
+    "rateLimits": null,
+    "concurrency": null,
+    "rights": {
+        "commercial": "allowed",
+        "openSourceRequired": null,
+        "caching": {
+            "permission": "allowed",
+            "maxTtl": null
+        },
+        "storage": "allowed",
+        "redistribution": "allowed",
+        "attribution": {
+            "required": false,
+            "text": "RCSB PDB and the original authors of the structure",
+            "url": "https://www.rcsb.org/pages/usage-policy",
+            "where": [
+                "source"
+            ]
+        },
+        "licence": "CC0-1.0"
+    },
+    "requirements": {
+        "key": false,
+        "userAgent": {
+            "required": false,
+            "pattern": null
+        }
+    },
+    "provenance": {
+        "terms": "https://www.rcsb.org/pages/usage-policy",
+        "policy": "https://www.rcsb.org/docs/programmatic-access/web-apis-overview",
+        "verifiedAt": "2026-11-10",
+        "declaredBy": "maintainer",
+        "contact": "info@rcsb.org",
+        "notes": "Read 2026-11-10: the usage policy (archive data and the programmatic APIs under CC0 1.0; attributing the original authors is encouraged; Molecule of the Month art is CC BY 4.0, not used here) and the Web APIs overview (the APIs are rate-limited, no figure: start with \"a handful of requests per second\", 429 beyond, back off exponentially; shared public IPs reach the limit sooner; static files unrestricted). No RateLimit header seen on a live call. Operations if split: data = https://data.rcsb.org/, search = https://search.rcsb.org/rcsbsearch/v2/query (one policy for both on the page)."
+    }
+}

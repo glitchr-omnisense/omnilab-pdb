@@ -52,6 +52,17 @@ primary citation, and RCSB PDB, where you show it. No key, no account. Every RCS
 rate-limited: RCSB asks a client to start at a handful of calls a second and answers 429 beyond (an
 IP shared with others meets it sooner); the source leaves 0.25 s between two calls.
 
+## Usage policy
+
+Declared as data in [`policy.json`](policy.json) (read at https://www.rcsb.org/docs/programmatic-access/web-apis-overview on 2026-11-10), and honoured on every request by the
+core: a limit reached waits when its window ends within `max_wait` seconds, else the request is not
+sent ([Usage policies](https://github.com/glitchr-omnisense/omnilab/blob/1.x/docs/policies.md)).
+
+- Limits: not published (unknown).
+- Licence: CC0-1.0; commercial use: allowed.
+- Credit: not required: RCSB PDB and the original authors of the structure (https://www.rcsb.org/pages/usage-policy).
+- Needs: nothing.
+
 ## Responsibility
 
 This package is an independent, unofficial client: it is not affiliated with, endorsed by or
