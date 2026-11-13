@@ -35,6 +35,34 @@ From UniProt, a protein's structures are related things (`$protein->related('str
 one alone, `$collector->collect('pdb', $id)`, and its own related proteins and ligands lead to
 UniProt and ChEBI in turn. See [docs/](docs/index.md).
 
+## Install and a first call
+
+```sh
+composer require omnilab/pdb
+```
+
+A real call, with no account and no key: the structure 4HHB (human deoxyhaemoglobin) in the RCSB
+PDB. `mailto` is your address, sent in the User-Agent so that the service can reach you before it
+blocks a caller; the source keeps to the limits its [`policy.json`](policy.json) declares.
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omnilab\Pdb\PdbSourceFactory;
+
+$pdb = (new PdbSourceFactory())->create(['mailto' => 'you@example.org']);   // your address, in the User-Agent
+$entry = $pdb->entity('4HHB');
+echo $entry->id, ', ', $entry->value('experimental_method'), ', ', $entry->property('resolution'), "\n";
+```
+
+Its output on 2026-11-13:
+
+```
+pdb:4HHB, X-RAY DIFFRACTION, 1.74 Å
+```
+
 ## Which API
 
 The Data API's **GraphQL** endpoint (`data.rcsb.org/graphql`): one call gives an entry with its
